@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/components/login'
-import student from '@/components/student'
-import teacher from '@/components/teacher'
+import bookbuy from '@/components/bookbuy'
+import admin from '@/components/admin'
+
+
 Vue.prototype.$router = Router
 
 Vue.use(Router)
@@ -15,19 +17,14 @@ export default new Router({
       component: login
     },
     {
-      path:'/student',
-      name:'student',
-      component:student
+      path:'/bookbuy',
+      name:'bookbuy',
+      component:bookbuy
     },
     {
-        path:'/teacher',
-        name:'teacher',
-        component:teacher
-    },
-    {
-        path:'/login',
-        name:'login',
-        component:login
+      path:'/admin',
+      name:'admin',
+      component:admin
     }
   ]
 })

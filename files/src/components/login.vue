@@ -14,7 +14,7 @@
       <el-button type="primary" plain @click="postdata">login</el-button>
     </div>
     <div id="Sign">
-      <a href="http://baidu.com">忘记密码?</a>
+      <a href="http://baidu.com">修改密码</a>
     </div>
   </div>
   
@@ -31,23 +31,32 @@ export default {
   //服务器提交代码数据
   methods:{
     postdata:function(){
+      // eslint-disable-next-line no-unused-vars
+      var password=this.password
+      localStorage.setItem("usr",this.user)
       this.$axios.post(this.GLOBAL.config_ip+'/login/',{//传送数据
           usr:this.user,
           pwd:this.password
-        }).then(function(res){//成功登陆
+        }).then((res)=>{//成功登陆
         console.log(res.data.code)
            if(res.data.code==0){
              if(res.data.identify==1){
                //学生界面
                localStorage.setItem("token",res.data.token);
-               location.href='#/student'
+               //未修改密码000 进行修改密码界
+              location.href='#/bookbuy'
            }else{
              //老师界面
              localStorage.setItem("token",res.data.token);
-             location.href='#/teacher'
+             location.href='#/admin'
            }
-           }else{
-             alert(res.data.msg);
+           }
+           else{
+             this.$message({
+                  showClose: true,
+                  message: '用户名密码不匹配',
+                  type: 'error'
+                });
            }
         }).catch(function(err){//失败
           console.log(err);
@@ -60,7 +69,7 @@ export default {
 <style>
 
 body {
-  background-image: url("../assets/backg.jpg");
+  background-image: url("../assets/2.jpg");
 
   background-size: cover;
 
@@ -70,7 +79,7 @@ body {
 #login_box {
   width: 20%;
 
-  height: 400px;
+  height: 40%;
 
   background: #e9e7e7c7;
 
@@ -119,5 +128,13 @@ body {
 
 #login_box #Sign a {
   color: #0c0b0c;
+}
+
+#link {
+  position:absolute;right:20px;bottom:20px;width:75px;border:0px solid #aaa
+}
+
+#wei {
+  position:absolute;right:500px;width:75px;border:0px solid
 }
 </style>
