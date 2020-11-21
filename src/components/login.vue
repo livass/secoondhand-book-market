@@ -1,6 +1,6 @@
 <template>
   <div id="login_box">
-    <h2>LOGIN</h2>
+    <h2>登录</h2>
     <div id="form">
       <div id="input_box">
         <el-input v-model="user" placeholder="请输入用户名"></el-input>
@@ -81,7 +81,7 @@ body {
 
   height: 40%;
 
-  background: #e9e7e7c7;
+  background: #f1dfdfc7;
 
   margin: auto;
 

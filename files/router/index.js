@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import login from '@/components/login'
 import bookbuy from '@/components/bookbuy'
 import admin from '@/components/admin'
-
+//import evaluate from '@components/evaluate'
 
 Vue.prototype.$router = Router
 
@@ -25,6 +25,11 @@ export default new Router({
       path:'/admin',
       name:'admin',
       component:admin
-    }
+    },
+   /* {
+      path:'/evaluate',
+      name:'evaluate',
+      component:evaluate
+    }*/
   ]
 })
